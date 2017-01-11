@@ -32,7 +32,7 @@ then
 	lsyncd.terminate( -1 )
 end
 
-lsyncd_version = '2.2.1'
+lsyncd_version = '2.2.1-wz'
 
 
 --
@@ -349,7 +349,7 @@ Queue = ( function
 
 		return nt[ nt.first ]
 	end
-	
+
 	--
 	-- Returns the last item of the Queue.
 	--
@@ -361,7 +361,7 @@ Queue = ( function
 
 		return nt[ nt.last ]
 	end
-	
+
 	--
 	-- Returns the size of the queue.
 	--
@@ -549,7 +549,7 @@ Queue = ( function
 	)
 		return iterReverse, self, self[ k_nt ].last + 1
 	end
-	
+
 
 	--
 	-- Creates a new queue.
@@ -998,7 +998,7 @@ local Combiner = ( function
 		)
 	end
 
-	
+
 	--
 	-- The new delay splits on the old one.
 	--
@@ -1051,8 +1051,8 @@ local Combiner = ( function
 			)
 		end
 	end
-					
-	
+
+
 	--
 	-- The new delay turns the old one (a move) into a delete and is blocked.
 	--
