@@ -254,8 +254,9 @@ handle_event(lua_State *L, struct kfs_event *event, ssize_t mlen)
 
 	if (etype) {
 		if (!path) {
-			printlogf(L, "Error", "Internal fail, fsevents, no path.");
-			exit(-1);
+			printlogf(L, "Error", "Internal fail, fsevents, no path. etype: %s, atype: %d", etype, atype);
+			// exit(-1);
+      return;
 		}
 		if (isdir < 0) {
 			printlogf(L, "Error", "Internal fail, fsevents, neither dir nor file.");
@@ -321,7 +322,7 @@ fsevents_ready(lua_State *L, struct observance *obs)
 				eventbufOff += ptrSize-(eventbufOff%ptrSize);
 			}
 			while (off < len && whichArg < FSE_MAX_ARGS) {
-				/* assign argument pointer to eventbuf based on 
+				/* assign argument pointer to eventbuf based on
 				   known current offset into eventbuf */
 				uint16_t argLen = 0;
 				event->args[whichArg] = (struct kfs_event_arg *) (eventbuf + eventbufOff);
@@ -436,5 +437,3 @@ open_fsevents(lua_State *L)
 	non_block_fd(fsevents_fd);
 	observe_fd(fsevents_fd, fsevents_ready, NULL, fsevents_tidy, NULL);
 }
-
-
