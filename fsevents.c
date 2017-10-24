@@ -179,12 +179,12 @@ handle_event(lua_State *L, struct kfs_event *event, ssize_t mlen)
 	} else {
 		printlogf(
 			L,
-			"Error",
+			"Warning",
 			"unknown event(%d) in fsevents.",
 			atype
 		);
-
-		exit(-1); // ERRNO
+    // exit(-1); // ERRNO
+		return;
 	}
 
 	{
