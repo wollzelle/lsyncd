@@ -32,7 +32,7 @@ then
 	lsyncd.terminate( -1 )
 end
 
-lsyncd_version = '2.2.1-wz'
+lsyncd_version = '2.2.1-wz.2'
 
 
 --
